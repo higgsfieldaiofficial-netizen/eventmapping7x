@@ -87,7 +87,18 @@ h1,h2,.brand,.btn,.phead b{font-family:'Archivo',Arial,sans-serif}
 .hero .stats span{color:#c3ccd6}
 .outline{background:rgba(255,255,255,.06)}
 @media(max-width:700px){.hero-inner{padding:28px 22px;margin:34px 0}.hero::before{background:linear-gradient(180deg,rgba(8,10,14,.82),rgba(8,10,14,.55) 55%,rgba(8,10,14,.35)),url('assets/hero-new-CKDO07K2.jpg') center/cover}}
-.pfoot{display:flex;justify-content:center;padding:12px;background:rgba(255,255,255,.03)}</style>
+.pfoot{display:flex;justify-content:center;padding:12px;background:rgba(255,255,255,.03)}
+.pmodal{background:rgba(4,5,9,.78);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.ppanel{animation:pop .32s cubic-bezier(.2,.9,.25,1.15)}
+@keyframes pop{from{transform:scale(.8) translateY(26px);opacity:0}to{transform:none;opacity:1}}
+.pback{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.25);padding:9px 14px;border-radius:99px;cursor:pointer;font-weight:bold;font-size:13px;flex:none}
+#pcount{color:#a4afb8;font-size:12px;letter-spacing:1px;flex:none}
+.phead{gap:10px}
+.phead b{flex:1;text-align:left}
+.pnav{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 14px;background:rgba(255,255,255,.03)}
+.pbtn{background:#ff3c3c;color:#fff;border:0;padding:11px 18px;border-radius:99px;cursor:pointer;font-weight:bold;font-size:14px}
+.pfoot{display:none}
+</style>
 </head>
 <body>
 <header class="wrap"><a class="brand" href="#home">EVENTS MAPPING <span class="red">7X</span></a><nav class="nav"><a href="#services">Services</a><a href="#process">Process</a><a href="#work">Work</a><a href="#packages">Packages</a><a href="#about">About</a><a href="#contact">Contact</a></nav></header>
@@ -122,7 +133,7 @@ h1,h2,.brand,.btn,.phead b{font-family:'Archivo',Arial,sans-serif}
 <div class="steps steps4 reveal" style="margin-top:30px"><div class="step"><b>01 · Scan</b><h3>Venue Scan &amp; 3D Mesh</h3><p class="muted">The facade is measured and rebuilt as an exact digital 3D mesh — every arch and window becomes a canvas.</p></div><div class="step"><b>02 · Design</b><h3>Film Built on the Mesh</h3><p class="muted">Your story film is designed frame-by-frame on that mesh, so visuals hug the real architecture.</p></div><div class="step"><b>03 · Align</b><h3>Projectors Aligned &amp; Blended</h3><p class="muted">High-lumen projectors are positioned, warped and edge-blended until the film sits perfectly on the building.</p></div><div class="step"><b>04 · Show</b><h3>The Live Moment</h3><p class="muted">On cue, the palace itself performs — light, music and story in one seamless cinematic show.</p></div></div>
 </div></section>
 <section class="section" id="process"><div class="wrap"><div class="tag">Our process</div><h2>From Brief to a Flawless Live Show</h2><div class="steps reveal"><div class="step"><b>01</b><h3>Discovery &amp; Vision Call</h3><p class="muted">We study your venue, dates and guest count; survey photos and your story come in.</p></div><div class="step"><b>02</b><h3>Custom Concept Design</h3><p class="muted">Concept boards, visual direction and cue points designed for your celebration — no templates.</p></div><div class="step"><b>03</b><h3>Technical Pre-Production</h3><p class="muted">Venue survey, measurements, projector specification and content build locked.</p></div><div class="step"><b>04</b><h3>On-Site Setup &amp; Rehearsal</h3><p class="muted">Installation, calibration and a full rehearsal before guests arrive.</p></div><div class="step"><b>05</b><h3>Live Cinematic Execution</h3><p class="muted">Our show-callers run the cues live; backup equipment and crew on site throughout.</p></div></div></div></section>
-<section class="section" id="work"><div class="wrap"><div class="tag">Selected work</div><h2>Film Reels</h2><p class="muted">Full show films from palaces, sangeet nights, entries and spiritual projections. Tap any reel to watch it on YouTube.</p><div class="projects reveal">
+<section class="section" id="work"><div class="wrap"><div class="tag">Selected work</div><h2>Film Reels</h2><p class="muted">Full show films from palaces, sangeet nights, entries and spiritual projections. Tap any reel — it plays right here, in the website.</p><div class="projects reveal">
 <article><a class="play" data-yt="1" href="https://youtu.be/xphtyMnYG78" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/xphtyMnYG78/hqdefault.jpg" alt="The Leela Palace Jaipur varmala entry"><span>▶</span></a><h3>The Leela Palace, Jaipur</h3><p>Varmala Entry</p></article>
 <article><a class="play" data-yt="1" href="https://youtu.be/Ae3kAhs9WV4" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/Ae3kAhs9WV4/hqdefault.jpg" alt="The Oberoi Udaivilas Udaipur entry"><span>▶</span></a><h3>The Oberoi Udaivilas, Udaipur</h3><p>Bride &amp; Groom Entry</p></article>
 <article><a class="play" data-yt="1" href="https://youtu.be/_UShGgnRd7A" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/_UShGgnRd7A/hqdefault.jpg" alt="Gulmohar Jaipur royal wedding"><span>▶</span></a><h3>Gulmohar, Jaipur</h3><p>Royal Wedding · Varmala Entry</p></article>
@@ -172,16 +183,30 @@ document.getElementById('enquiry').addEventListener('submit',function(e){e.preve
 <script>
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08});
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
-var pm=document.getElementById('pmodal'),pf=document.getElementById('pframe'),pt=document.getElementById('ptitle');
-function openPlayer(src,title,fb){document.getElementById('popen').href=fb||'#';pf.innerHTML='<iframe src="'+src+'" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen title="Video player"></iframe>';pt.textContent=title||'Video';pm.classList.add('open');document.body.style.overflow='hidden';}
+var pm=document.getElementById('pmodal'),pf=document.getElementById('pframe'),pt=document.getElementById('ptitle'),pc=document.getElementById('pcount'),popenBtn=document.getElementById('popen');
+var PL=[],PI=0;
+function show(i){PI=(i+PL.length)%PL.length;var it=PL[PI];pf.innerHTML='<iframe src="'+it.src+'" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen title="Video player"></iframe>';pt.textContent=it.title;pc.textContent=(PI+1)+' / '+PL.length;popenBtn.href=it.fb||'#';}
+function openList(list,i){PL=list;pm.classList.add('open');document.body.style.overflow='hidden';show(i||0);}
 function closePlayer(){pm.classList.remove('open');pf.innerHTML='';document.body.style.overflow='';}
 document.getElementById('pclose').addEventListener('click',closePlayer);
+document.getElementById('pback').addEventListener('click',closePlayer);
+document.getElementById('pprev').addEventListener('click',function(){show(PI-1);});
+document.getElementById('pnext').addEventListener('click',function(){show(PI+1);});
 pm.addEventListener('click',function(e){if(e.target===pm)closePlayer();});
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closePlayer();});
-document.querySelectorAll('.vbox[data-drive]').forEach(function(box){box.addEventListener('click',function(){var t=box.closest('.vtile');openPlayer('https://drive.google.com/file/d/'+box.getAttribute('data-drive')+'/preview',t?t.querySelector('h4').textContent:'Video',box.getAttribute('data-view'));});});
-document.querySelectorAll('a.play[data-yt]').forEach(function(a){a.addEventListener('click',function(ev){ev.preventDefault();var id=a.getAttribute('href').split('/').pop();var art=a.closest('article');openPlayer('https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0',art?art.querySelector('h3').textContent:'Video',a.getAttribute('href'));});});
+document.addEventListener('keydown',function(e){if(!pm.classList.contains('open'))return;if(e.key==='Escape')closePlayer();if(e.key==='ArrowLeft')show(PI-1);if(e.key==='ArrowRight')show(PI+1);});
+var tx=0;pm.addEventListener('touchstart',function(e){tx=e.changedTouches[0].clientX;},{passive:true});
+pm.addEventListener('touchend',function(e){var d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>60)show(PI+(d<0?1:-1));},{passive:true});
+var YTT={"xphtyMnYG78": "The Leela Palace Jaipur — 3D Projection Mapping for Bride Groom Varmala Entry by Jeetu Swami", "Ae3kAhs9WV4": "The Oberoi Udaivilas Udaipur — 3D Projection Mapping for Bride Groom Entry by Jitu Swami", "_UShGgnRd7A": "Royal Wedding Projection Mapping at Gulmohar Jaipur — Varmala Entry by Mapping7X", "mE1rgttdabc": "Royal Varmala Entry with Projection Mapping — Ratlam Wedding by Mapping7X", "g8PEvJDB2cQ": "Adi Shiva Statue — 3D Projection Mapping, LED Mapping & Customised Content", "rHlCsH_RqQk": "Adi Shiva Projection Mapping", "754tDr8ixDY": "3D Video Mapping for Weddings & Live Events by Mapping7X", "-PzT8dMJu3E": "Immersive 3D Projection Mapping Experiences — EventsMapping7X", "pAXyfI9qNm8": "Turn Your Wedding into a Masterpiece — 3D Projection Mapping", "rJzXQfj33t0": "Bring Your Beloved Back to Your Side & Take Blessings on Your Marriage"};
+var reels=[].slice.call(document.querySelectorAll('a.play[data-yt]'));
+var reelList=reels.map(function(a){var id=a.getAttribute('href').split('/').pop();return{src:'https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0',title:YTT[id]||'Video',fb:a.getAttribute('href')};});
+reels.forEach(function(a,i){a.addEventListener('click',function(ev){ev.preventDefault();openList(reelList,i);});});
+document.querySelectorAll('.cat').forEach(function(cat){
+var boxes=[].slice.call(cat.querySelectorAll('.vbox[data-drive]'));
+var list=boxes.map(function(box){var t=box.closest('.vtile');return{src:'https://drive.google.com/file/d/'+box.getAttribute('data-drive')+'/preview',title:t?t.querySelector('h4').textContent:'Video',fb:box.getAttribute('data-view')};});
+boxes.forEach(function(box,i){box.addEventListener('click',function(){openList(list,i);});});
+});
 if(window.matchMedia('(pointer:fine)').matches){document.querySelectorAll('.tilt').forEach(function(card){card.addEventListener('mousemove',function(e){var r=card.getBoundingClientRect();var x=(e.clientX-r.left)/r.width-.5;var y=(e.clientY-r.top)/r.height-.5;card.style.transform='perspective(800px) rotateY('+(x*7)+'deg) rotateX('+(-y*7)+'deg) translateY(-3px)';});card.addEventListener('mouseleave',function(){card.style.transform='';});});}
 </script>
-<div class="pmodal" id="pmodal" role="dialog" aria-modal="true"><div class="ppanel"><div class="phead"><b id="ptitle">Video</b><button class="pclose" id="pclose" aria-label="Close">✕</button></div><div class="pframe" id="pframe"></div><div class="pfoot"><a class="mini solid" id="popen" href="#" target="_blank" rel="noopener">Video slow hai? Yahan kholo →</a></div></div></div>
+<div class="pmodal" id="pmodal" role="dialog" aria-modal="true"><div class="ppanel"><div class="phead"><button class="pback" id="pback">&#8592; Back</button><b id="ptitle">Video</b><span id="pcount"></span><button class="pclose" id="pclose" aria-label="Close">&#10005;</button></div><div class="pframe" id="pframe"></div><div class="pnav"><button class="pbtn" id="pprev">&#8249; Prev</button><a class="mini solid" id="popen" href="#" target="_blank" rel="noopener">App / YouTube me kholo &#8594;</a><button class="pbtn" id="pnext">Next &#8250;</button></div></div></div>
 </body>
 </html>
