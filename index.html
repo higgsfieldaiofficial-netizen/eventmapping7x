@@ -98,6 +98,10 @@ h1,h2,.brand,.btn,.phead b{font-family:'Archivo',Arial,sans-serif}
 .pnav{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 14px;background:rgba(255,255,255,.03)}
 .pbtn{background:#ff3c3c;color:#fff;border:0;padding:11px 18px;border-radius:99px;cursor:pointer;font-weight:bold;font-size:14px}
 .pfoot{display:none}
+
+.pload{position:absolute;inset:0;display:flex;flex-direction:column;gap:14px;align-items:center;justify-content:center;color:#a4afb8;font-size:13px;letter-spacing:1px}
+.spin{width:44px;height:44px;border-radius:50%;border:4px solid rgba(255,255,255,.15);border-top-color:#ff3c3c;animation:sp 0.8s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
 </style>
 </head>
 <body>
@@ -186,7 +190,7 @@ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isInter
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
 var pm=document.getElementById('pmodal'),pf=document.getElementById('pframe'),pt=document.getElementById('ptitle'),pc=document.getElementById('pcount'),popenBtn=document.getElementById('popen');
 var PL=[],PI=0;
-function show(i){PI=(i+PL.length)%PL.length;var it=PL[PI];pf.innerHTML='<iframe src="'+it.src+'" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen title="Video player"></iframe>';pt.textContent=it.title;pc.textContent=(PI+1)+' / '+PL.length;popenBtn.href=it.fb||'#';}
+function show(i){PI=(i+PL.length)%PL.length;var it=PL[PI];pt.textContent=it.title;pc.textContent=(PI+1)+' / '+PL.length;popenBtn.href=it.fb||'#';popenBtn.textContent=(it.fb&&it.fb.indexOf('drive.google')>-1)?'Drive app me kholo \u2192':'YouTube me kholo \u2192';pf.innerHTML='<div class="pload"><div class="spin"></div>Video load ho raha hai\u2026</div>';clearTimeout(window._pt);window._pt=setTimeout(function(){pf.innerHTML='<iframe src="'+it.src+'" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen title="Video player"></iframe>';},320);}
 function openList(list,i){PL=list;pm.classList.add('open');document.body.style.overflow='hidden';show(i||0);}
 function closePlayer(){pm.classList.remove('open');pf.innerHTML='';document.body.style.overflow='';}
 document.getElementById('pclose').addEventListener('click',closePlayer);
