@@ -39,6 +39,20 @@ body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opa
 @keyframes winGlow{0%,100%{opacity:.25}50%{opacity:1}}
 .dlabel{font:600 12px Arial,sans-serif;fill:#a4afb8;letter-spacing:1px}
 .dtitle{font:bold 15px Arial,sans-serif;fill:#f5f7f8}
+
+.marquee{overflow:hidden;white-space:nowrap;margin:26px 0 8px;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee>div{display:inline-flex;animation:mq 26s linear infinite;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#a4afb8}
+.marquee span{padding-right:14px}
+@keyframes mq{to{transform:translateX(-50%)}}
+.soc{position:relative;overflow:hidden}
+.soc::after{content:"";position:absolute;top:0;left:-80%;width:55%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.09),transparent);transform:skewX(-18deg);transition:left .7s ease}
+.soc:hover::after{left:125%}
+.badge-logo{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);margin-bottom:8px;animation:floaty 3.6s ease-in-out infinite}
+.soc:nth-child(2) .badge-logo{animation-delay:.5s}.soc:nth-child(3) .badge-logo{animation-delay:1s}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.ig-btn{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);border:none;color:#fff}
+.yt-btn{background:#ff0000;border:none;color:#fff}
+.fb-btn{background:#1877f2;border:none;color:#fff}
 </style>
 </head>
 <body>
@@ -105,10 +119,12 @@ body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opa
 <article class="card"><p>"The palace façade show felt like a Bollywood premiere. Our sangeet became the talk of the season."</p><p><b>Neha &amp; Rohan Kapoor</b> · Wedding, Jaipur</p></article>
 <article class="card"><p>"Professional team, jaw-dropping visuals and zero stress on event day. Highly recommended for premium weddings."</p><p><b>Ankit Malhotra</b> · Event Manager, Delhi NCR</p></article>
 </div></div></section>
-<section class="section" id="social"><div class="wrap"><div class="tag">Follow the shows</div><h2>EventsMapping7X on Social</h2><p class="muted">Showreels, behind-the-scenes and full venue transformations — posted from real events, all year round.</p><div class="grid reveal">
-<article class="card"><div class="symbol">◎</div><h3>Instagram</h3><p>Daily reels and event highlights.</p><p><a class="mini solid" href="https://www.instagram.com/jiteshswami" target="_blank" rel="noopener">@jiteshswami</a></p></article>
-<article class="card"><div class="symbol">▶</div><h3>YouTube</h3><p>Full show films and venue transformations.</p><p><a class="mini solid" href="https://youtube.com/@jeetu_swami07" target="_blank" rel="noopener">@jeetu_swami07</a></p></article>
-<article class="card"><div class="symbol">f</div><h3>Facebook</h3><p>Event galleries, reviews and updates.</p><p><a class="mini solid" href="https://www.facebook.com/jitudeepa" target="_blank" rel="noopener">EventsMapping7X</a></p></article>
+<section class="section" id="social"><div class="wrap"><div class="tag">Follow the shows</div><h2>EventsMapping7X on Social</h2><p class="muted">Showreels, behind-the-scenes and full venue transformations — posted from real events, all year round.</p>
+<div class="marquee" aria-hidden="true"><div><span>Instagram @jiteshswami ✦ YouTube @jeetu_swami07 ✦ Facebook EventsMapping7X ✦ WhatsApp +91 96804 74361 ✦ </span><span>Instagram @jiteshswami ✦ YouTube @jeetu_swami07 ✦ Facebook EventsMapping7X ✦ WhatsApp +91 96804 74361 ✦ </span></div></div>
+<div class="grid reveal">
+<article class="card soc tilt"><span class="badge-logo"><svg width="34" height="34" viewBox="0 0 24 24"><defs><linearGradient id="igg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#feda75"/><stop offset=".35" stop-color="#fa7e1e"/><stop offset=".6" stop-color="#d62976"/><stop offset=".82" stop-color="#962fbf"/><stop offset="1" stop-color="#4f5bd5"/></linearGradient></defs><rect x="1.5" y="1.5" width="21" height="21" rx="5.5" fill="url(#igg)"/><rect x="5.6" y="5.6" width="12.8" height="12.8" rx="4" fill="none" stroke="#fff" stroke-width="1.7"/><circle cx="12" cy="12" r="3.1" fill="none" stroke="#fff" stroke-width="1.7"/><circle cx="16.9" cy="7.1" r="1.25" fill="#fff"/></svg></span><h3>Instagram</h3><p>Daily reels and event highlights.</p><p><a class="mini ig-btn" href="https://www.instagram.com/jiteshswami" target="_blank" rel="noopener">@jiteshswami</a></p></article>
+<article class="card soc tilt"><span class="badge-logo"><svg width="38" height="34" viewBox="0 0 28 20"><rect x="0.5" y="0.5" width="27" height="19" rx="4.5" fill="#ff0000"/><path d="M11.2 6.2 L18.6 10 L11.2 13.8 Z" fill="#fff"/></svg></span><h3>YouTube</h3><p>Full show films and venue transformations.</p><p><a class="mini yt-btn" href="https://youtube.com/@jeetu_swami07" target="_blank" rel="noopener">@jeetu_swami07</a></p></article>
+<article class="card soc tilt"><span class="badge-logo"><svg width="34" height="34" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#1877f2"/><path d="M13.4 21.2v-7.6h2.55l.38-2.96H13.4V8.75c0-.86.24-1.44 1.47-1.44h1.57V4.66c-.27-.04-1.2-.12-2.29-.12-2.26 0-3.81 1.38-3.81 3.92v2.18H7.8v2.96h2.54v7.6a11 11 0 0 0 3.06 0z" fill="#fff"/></svg></span><h3>Facebook</h3><p>Event galleries, reviews and updates.</p><p><a class="mini fb-btn" href="https://www.facebook.com/jitudeepa" target="_blank" rel="noopener">EventsMapping7X</a></p></article>
 </div></div></section>
 <section class="section" id="contact"><div class="wrap contact"><div><div class="tag">Start your show</div><h2>Let's Turn Your Venue Into Light</h2><p class="muted">Tell us about your celebration — venue, city and dates are enough to begin.</p><p>Call: <a href="tel:+919314939240"><b>+91 93149 39240</b></a> (10 AM – 9 PM)<br>WhatsApp: <a href="https://wa.me/919680474361" target="_blank" rel="noopener"><b>+91 96804 74361</b></a> (24×7)<br>Studio: 119, Indira Colony 1, Sector 52, Gurugram – 122003, Delhi NCR</p></div><form class="form" id="enquiry"><h3>Request a Quote</h3><label>Full name</label><input name="name" required placeholder="Your name"><label>Phone / WhatsApp</label><input name="phone" required placeholder="+91"><label>Event type</label><select name="type"><option>Wedding</option><option>Sangeet</option><option>Engagement</option><option>Reception</option><option>Destination Wedding</option><option>Palace / Hotel Façade</option><option>Festival / Temple</option><option>Corporate / Product Launch</option></select><label>City</label><input name="city" placeholder="Event city"><label>Venue</label><input name="venue" placeholder="Venue name (if booked)"><label>Event date</label><input name="date" type="date"><button class="btn" type="submit">Send on WhatsApp →</button><p id="status" class="muted"></p></form></div></section>
 </main>
